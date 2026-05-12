@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>疊房子挑戰</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <canvas id="gameCanvas" aria-label="疊房子遊戲畫面"></canvas>
+
+      <section id="startScreen" class="screen active" aria-labelledby="gameTitle">
+        <div class="panel start-panel">
+          <p class="eyebrow">Stack House</p>
+          <h1 id="gameTitle">疊房子挑戰</h1>
+          <label class="name-field">
+            <span>玩家名稱</span>
+            <input id="playerName" maxlength="16" autocomplete="off" placeholder="輸入你的名字" />
+          </label>
+          <button id="startButton" class="primary-button" type="button">開始遊戲</button>
+
+          <div class="leaderboard">
+            <div class="leaderboard-title">
+              <h2>排行榜 Top 10</h2>
+              <button id="clearScoresButton" class="ghost-button" type="button">清除</button>
+            </div>
+            <ol id="leaderboardList" class="score-list"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="hud" class="hud" aria-live="polite">
+        <div>
+          <span class="hud-label">玩家</span>
+          <strong id="hudName">玩家</strong>
+        </div>
+        <div>
+          <span class="hud-label">高度</span>
+          <strong id="hudHeight">0</strong>
+        </div>
+        <div>
+          <span class="hud-label">時間</span>
+          <strong id="hudTime">10.0</strong>
+        </div>
+      </section>
+
+      <section id="endScreen" class="screen" aria-labelledby="resultTitle">
+        <div class="panel result-panel">
+          <p class="eyebrow">Game Over</p>
+          <h2 id="resultTitle">挑戰結束</h2>
+          <p id="resultText" class="result-text"></p>
+          <p id="rankText" class="rank-text"></p>
+          <div class="result-actions">
+            <button id="retryButton" class="primary-button" type="button">再玩一次</button>
+            <button id="homeButton" class="secondary-button" type="button">回開始畫面</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
